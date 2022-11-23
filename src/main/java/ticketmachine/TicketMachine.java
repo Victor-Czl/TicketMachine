@@ -72,11 +72,13 @@ public class TicketMachine {
 	 * @return the balance
 	 */
 	public int refund() {
-		System.out.println("Je vous rends : " + balance + " centimes");
+
+		int monnaieRendu = this.balance;
+		System.out.println("Je vous rends : " + monnaieRendu + " centimes");
 
 		this.balance = 0;
 
-		return balance;
+		return monnaieRendu;
 	}
 
 	/**
