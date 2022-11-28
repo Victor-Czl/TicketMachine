@@ -74,4 +74,20 @@ public class TicketMachineTest {
 		assertEquals(0, machine.getBalance());
 	}
 
+	@Test
+	// S9 : on ne peut pas insérer un montant négatif
+	public void testExceptionPriceNegatif () {
+		assertThrows(IllegalArgumentException.class, () -> {
+			machine.insertMoney(-10);
+		},"Cet appel doit lever une exception");
+	}
+
+	@Test
+	// S9 : on ne peut pas créer de machine qui délivre des tickets dont le prix est négatif
+	public void testExceptionTicketNegatif () {
+		assertThrows(IllegalArgumentException.class, () -> {
+			TicketMachine machine2 = new TicketMachine(-10);
+		}, "Cet appel doit lever une exception");
+	}
+
 }

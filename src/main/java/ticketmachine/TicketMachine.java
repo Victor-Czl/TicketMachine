@@ -62,7 +62,10 @@ public class TicketMachine {
 	 * @param amount the amount inserted, in cents (positive)
 	 * @throws IllegalArgumentException if amount is not positive
 	 */
-	public void insertMoney(int amount) {
+	public void insertMoney(int amount) throws IllegalArgumentException {
+		if(amount < 0) {
+			throw new IllegalArgumentException("amount ne peut pas être négatif");
+		}
 		balance = balance + amount;
 	}
 
